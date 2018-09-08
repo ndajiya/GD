@@ -112,7 +112,25 @@ gdjs.evtTools.facebookInstantGames.getPlayerEntry = function(
       errorVariable.setString(error.message || "Unknown error");
     });
 };
+/** ConnectedPlayer */
+gdjs.evtTools.facebookInstantGames.getConnectedPlayerId = function() {
+  if (typeof FBInstant === "undefined") return "";
 
+  return FBInstant.connectedplayer.getID() || "";
+};
+
+gdjs.evtTools.facebookInstantGames.getConnectedPlayerName = function() {
+  if (typeof FBInstant === "undefined") return "";
+
+  return FBInstant.connectedplayer.getName() || "";
+};
+gdjs.evtTools.facebookInstantGames.getConnectedPlayersAsync = function() {
+  if (typeof FBInstant === "undefined") return "";
+
+  return FBInstant.connectedplayers.getAsync() || "";
+};
+
+/** End addition */
 if (typeof FBInstant === "undefined" && typeof window !== "undefined") {
   console.log("Creating a mocked version of Facebook Instant Games");
 
